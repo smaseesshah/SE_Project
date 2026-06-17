@@ -104,5 +104,3 @@ Run with Gunicorn on hosting platforms:
 ```bash
 gunicorn wsgi:app
 ```
-
-For a semester demo, local SQLite is enough. For real production, use PostgreSQL and cloud image storage.
