@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE Time Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#B8975A;--gold-light:#D4B896;--gold-dark:#8A6E3E;
+  --text-primary:#F0EDE8;--text-secondary:rgba(240,237,232,0.66);--text-muted:rgba(240,237,232,0.38);
+  --panel:rgba(255,255,255,0.055);--line:rgba(255,255,255,0.1);
+  --radius:16px;--radius-sm:10px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);
+}
+body{
+  min-height:100vh;background:#0A0A0B;color:var(--text-primary);
+  font-family:'DM Sans',sans-serif;overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 12% 8%,rgba(184,151,90,0.1),transparent 60%),
+    radial-gradient(ellipse 45% 35% at 88% 80%,rgba(184,151,90,0.07),transparent 55%);
+}
+nav{
+  position:sticky;top:0;z-index:20;min-height:68px;padding:0.7rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  background:rgba(10,10,11,0.78);backdrop-filter:blur(28px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary)}
+.logo-ring{width:38px;height:38px;border-radius:50%;border:1px solid rgba(184,151,90,0.5);display:flex;align-items:center;justify-content:center}
+.logo-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.logo-text{font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:4px;font-weight:600}
+.logo-sub{display:block;margin-top:-2px;font-size:0.5rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap}
+.nav-link{color:var(--text-secondary);font-size:0.68rem;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none}
+.nav-link:hover{color:var(--gold)}
+.shell{max-width:1280px;margin:0 auto;padding:3rem 2.5rem 5rem}
+.hero{display:flex;justify-content:space-between;gap:2rem;align-items:flex-end;margin-bottom:1.6rem}
+.eyebrow{font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-family:'Cinzel',serif;margin-bottom:0.7rem}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.4rem);font-weight:300;line-height:1}
+.hero p{color:var(--text-secondary);max-width:600px;font-size:0.86rem;line-height:1.8;margin-top:1rem}
+.tabs{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab{
+  background:rgba(255,255,255,0.045);border:1px solid rgba(255,255,255,0.09);
+  color:var(--text-secondary);border-radius:100px;padding:10px 16px;
+  font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+}
+.tab.active{background:rgba(184,151,90,0.14);border-color:rgba(184,151,90,0.38);color:var(--gold)}
+.grid{display:grid;grid-template-columns:minmax(0,1.42fr) minmax(320px,0.78fr);gap:1.5rem;align-items:start}
+.panel{
+  background:var(--panel);backdrop-filter:blur(28px);border:1px solid var(--line);
+  border-radius:var(--radius);padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,0.28);
+}
+.panel-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;margin-bottom:0.4rem}
+.panel-sub{font-size:0.75rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-row{margin-bottom:1rem}
+label{display:block;font-size:0.58rem;letter-spacing:2.3px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px}
+input,select,textarea{
+  width:100%;background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.11);
+  color:var(--text-primary);border-radius:var(--radius-sm);padding:11px 13px;
+  font-family:'DM Sans',sans-serif;font-size:0.84rem;outline:none;transition:border-color var(--transition),background var(--transition);
+}
+select option{background:#111;color:var(--text-primary)}
+textarea{min-height:112px;resize:vertical;line-height:1.7}
+input:focus,select:focus,textarea:focus{border-color:rgba(184,151,90,0.55);background:rgba(184,151,90,0.05)}
+.btn{
+  border:none;border-radius:100px;padding:12px 20px;font-family:'DM Sans',sans-serif;
+  font-size:0.66rem;letter-spacing:2.2px;text-transform:uppercase;font-weight:600;
+  cursor:pointer;transition:all var(--transition);
+}
+.btn-gold{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:#0A0A0B;box-shadow:0 8px 28px rgba(184,151,90,0.22)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 14px 34px rgba(184,151,90,0.36)}
+.btn-ghost{background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.11);color:var(--text-primary)}
+.btn-ghost:hover{border-color:rgba(184,151,90,0.4);color:var(--gold)}
+.btn-danger{background:rgba(255,91,91,0.1);border:1px solid rgba(255,91,91,0.26);color:#ffaaaa}
+.login-wrap{max-width:460px;margin:10vh auto}
+.notice{
+  position:fixed;right:1.4rem;bottom:1.4rem;z-index:100;
+  background:rgba(18,16,14,0.95);border:1px solid rgba(184,151,90,0.35);
+  border-left:3px solid var(--gold);padding:12px 16px;border-radius:var(--radius-sm);
+  color:var(--text-primary);font-size:0.78rem;transform:translateX(130%);transition:transform var(--transition);
+  max-width:min(360px,calc(100vw - 2rem));
+}
+.notice.show{transform:translateX(0)}
+.hidden{display:none!important}
+.image-preview{display:grid;grid-template-columns:repeat(2,1fr);gap:0.7rem}
+.image-preview div{
+  aspect-ratio:4/3;border-radius:var(--radius-sm);border:1px dashed rgba(184,151,90,0.35);
+  background:rgba(255,255,255,0.035);display:flex;align-items:center;justify-content:center;
+  overflow:hidden;color:var(--text-muted);font-size:0.72rem;text-align:center;line-height:1.6;
+}
+.image-preview img{width:100%;height:100%;object-fit:cover}
+.color-tools{display:flex;gap:0.7rem;align-items:center;flex-wrap:wrap;margin-bottom:0.8rem}
+.swatch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.55rem;margin-bottom:0.8rem}
+.swatch{
+  min-height:54px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.04);cursor:pointer;overflow:hidden;
+}
+.swatch-chip{height:24px}
+.swatch-name{font-size:0.55rem;color:var(--text-secondary);padding:5px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.swatch.selected{border-color:var(--gold);box-shadow:0 0 0 2px rgba(184,151,90,0.22)}
+.selected-colors{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1rem}
+.selected-colors span{font-size:0.62rem;color:var(--text-secondary);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:5px 9px}
+.list{display:flex;flex-direction:column;gap:0.9rem}
+.item{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-sm);padding:1rem;
+}
+.product-row{display:grid;grid-template-columns:72px 1fr auto;gap:1rem;align-items:center}
+.product-row img{width:72px;height:72px;border-radius:8px;object-fit:cover}
+.product-brand{font-size:0.55rem;letter-spacing:2.2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem}
+.product-meta{font-size:0.72rem;color:var(--text-muted);margin-top:0.25rem}
+.edit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.7rem;margin-top:1rem}
+.order-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.8rem}
+.tracking{font-family:'Cinzel',serif;color:var(--gold);letter-spacing:2px}
+.status-pill{border:1px solid rgba(184,151,90,0.35);border-radius:100px;color:var(--gold);font-size:0.62rem;letter-spacing:1.6px;text-transform:uppercase;padding:5px 9px}
+.order-items{font-size:0.76rem;color:var(--text-secondary);line-height:1.8;margin:0.8rem 0}
+.filters{display:grid;grid-template-columns:1.2fr 0.7fr 0.7fr auto;gap:0.8rem;margin-bottom:1rem}
+.badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;border-radius:50%;background:var(--gold);color:#111;font-size:0.68rem;font-weight:700}
+.section{display:none}
+.section.active{display:block}
+.fine-print{font-size:0.68rem;color:var(--text-muted);line-height:1.7;margin-top:0.8rem}
+@media(max-width:900px){
+  nav{padding:0.8rem 1rem}
+  .shell{padding:2rem 1rem 4rem}
+  .hero{display:block}
+  .grid,.form-grid,.edit-grid,.filters{grid-template-columns:1fr}
+  .product-row{grid-template-columns:64px 1fr}
+  .product-row .btn{grid-column:1/-1}
+  .swatch-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="/">
+    <div class="logo-ring"><div class="logo-dot"></div></div>
+    <div><div class="logo-text">LUXE TIME</div><span class="logo-sub">Admin Studio</span></div>
+  </a>
+  <div class="nav-actions">
+    <a class="nav-link" href="/">Storefront</a>
+    <button class="btn btn-ghost hidden" id="logoutBtn" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<main>
+  <section class="login-wrap panel" id="loginPanel">
+    <div class="eyebrow">Secure Access</div>
+    <h1>Admin</h1>
+    <p class="panel-sub">Enter the admin password to manage products, orders, stock, and tracking updates.</p>
+    <form onsubmit="login(event)">
+      <div class="form-row"><label>Password</label><input type="password" id="loginPassword" autocomplete="current-password" placeholder="Enter password"></div>
+      <button class="btn btn-gold" style="width:100%">Login</button>
+    </form>
+  </section>
+
+  <section class="shell hidden" id="adminShell">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Operations Console</div>
+        <h1>Admin Dashboard</h1>
+        <p>Manage catalog products, stock, customer orders, notifications, and order tracking statuses from one backend-backed interface.</p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showSection('add')">Add Product</button>
+      <button class="tab" onclick="showSection('products')">Manage Products</button>
+      <button class="tab" onclick="showSection('orders')">Orders <span class="badge hidden" id="orderBadge">0</span></button>
+      <button class="tab" onclick="showSection('notifications')">Notifications <span class="badge hidden" id="notificationBadge">0</span></button>
+      <button class="tab" onclick="showSection('security')">Security</button>
+    </div>
+
+    <section class="section active" id="section-add">
+      <div class="grid">
+        <section class="panel">
+          <div class="panel-title">Add Product</div>
+          <p class="panel-sub">Upload one or more images, set stock, and choose colors from searchable named swatches.</p>
+          <form id="productForm" onsubmit="createProduct(event)">
+            <div class="form-grid">
+              <div class="form-row"><label>Name</label><input name="name" required placeholder="Royal Oak Offshore"></div>
+              <div class="form-row"><label>Brand</label><input name="brand" required placeholder="Audemars Piguet"></div>
+              <div class="form-row">
+                <label>Category</label>
+                <select name="category" required>
+                  <option value="luxury">Luxury</option>
+                  <option value="sports">Sports</option>
+                  <option value="casual">Casual</option>
+                  <option value="smart">Smartwatch</option>
+                </select>
+              </div>
+              <div class="form-row"><label>Images</label><input type="file" name="images" id="imageInput" accept="image/png,image/jpeg,image/webp,image/gif" multiple required></div>
+              <div class="form-row"><label>Price USD</label><input name="price" type="number" min="0" step="0.01" required placeholder="12500"></div>
+              <div class="form-row"><label>Original Price</label><input name="orig" type="number" min="0" step="0.01" placeholder="14200"></div>
+              <div class="form-row"><label>Rating</label><input name="rating" type="number" min="0" max="5" step="0.1" value="4.8"></div>
+              <div class="form-row"><label>Reviews</label><input name="reviews" type="number" min="0" step="1" value="0"></div>
+              <div class="form-row"><label>Stock</label><input name="stock" type="number" min="0" step="1" value="10" required></div>
+            </div>
+            <div class="form-row"><label>Description</label><textarea name="description" required placeholder="Describe the movement, material, usage, and unique value."></textarea></div>
+            <input type="hidden" name="colors" id="selectedColorInput">
+            <div class="form-row">
+              <label>Colors</label>
+              <div class="color-tools">
+                <input type="text" id="colorSearch" placeholder="Search color name" oninput="renderColors()">
+                <button type="button" class="btn btn-ghost" onclick="toggleColorExpand()" id="colorToggle">Show More</button>
+              </div>
+              <div class="selected-colors" id="selectedColorNames"></div>
+              <div class="swatch-grid" id="colorGrid"></div>
+            </div>
+            <div class="form-row"><label>Specifications</label><textarea name="specs" placeholder="Movement: Automatic&#10;Case: Stainless Steel&#10;Crystal: Sapphire&#10;WR: 100m&#10;Diameter: 41mm"></textarea></div>
+            <button class="btn btn-gold">Publish Product</button>
+          </form>
+        </section>
+
+        <aside class="panel">
+          <div class="panel-title">Image Preview</div>
+          <p class="panel-sub">Selected images are stored locally for future storefront use.</p>
+          <div class="image-preview" id="imagePreview"><div>Choose product images</div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="section-products">
+      <section class="panel">
+        <div class="panel-title">Manage Products</div>
+        <p class="panel-sub">Search, filter, update prices and stock, or remove products from the storefront.</p>
+        <div class="filters">
+          <input id="productSearch" placeholder="Search name, brand, or ID" oninput="loadProducts()">
+          <select id="productCategory" onchange="loadProducts()"><option value="">All categories</option><option value="luxury">Luxury</option><option value="sports">Sports</option><option value="casual">Casual</option><option value="smart">Smart</option></select>
+          <select id="productActive" onchange="loadProducts()"><option value="">All visibility</option><option value="1">Active</option><option value="0">Removed</option></select>
+          <button class="btn btn-ghost" onclick="loadProducts()">Refresh</button>
+        </div>
+        <div class="list" id="productList"></div>
+      </section>
+    </section>
+
+    <section class="section" id="section-orders">
+      <section class="panel">
+        <div class="panel-title">Orders</div>
+        <p class="panel-sub">Approve orders to reduce stock. Declined orders keep stock unchanged. Update tracking status for customers.</p>
+        <div class="filters">
+          <input id="orderSearch" placeholder="Search tracking, customer, email" oninput="loadOrders()">
+          <select id="orderStatus" onchange="loadOrders()"><option value="">All statuses</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="ready_for_shipment">Ready for shipment</option><option value="in_shipment">In shipment</option><option value="delivered">Delivered</option><option value="declined">Declined</option><option value="delayed">Delayed</option></select>
+          <button class="btn btn-ghost" onclick="loadOrders()">Refresh</button>
+        </div>
+        <div class="list" id="orderList"></div>
+      </section>
+    </section>
+
+    <section class="section" id="section-notifications">
+      <section class="panel">
+        <div class="panel-title">Notifications</div>
+        <p class="panel-sub">New orders, status workflow alerts, and Contact Us messages appear here with details.</p>
+        <button class="btn btn-ghost" onclick="markNotificationsRead()">Mark All Read</button>
+        <div class="list" id="notificationList" style="margin-top:1rem"></div>
+      </section>
+    </section>
+
+    <section class="section" id="section-security">
+      <section class="panel" style="max-width:620px">
+        <div class="panel-title">Security</div>
+        <p class="panel-sub">Change the admin password before deployment and keep the new value private.</p>
+        <form onsubmit="changePassword(event)">
+          <div class="form-row"><label>Current Password</label><input type="password" id="currentPassword" autocomplete="current-password"></div>
+          <div class="form-row"><label>New Password</label><input type="password" id="newPassword" autocomplete="new-password" placeholder="10+ chars, upper, lower, number"></div>
+          <button class="btn btn-gold">Update Password</button>
+        </form>
+      </section>
+    </section>
+  </section>
+</main>
+
+<div class="notice" id="notice"></div>
+
+<script>
+const notice=document.getElementById('notice');
+let selectedColors=[];
+let colorsExpanded=false;
+let productsCache=[];
+const API_BASE=window.location.protocol==='file:'?'http://127.0.0.1:5000':'';
+
+const COLOR_OPTIONS=[
+['Black','#000000'],['White','#FFFFFF'],['Ivory','#FFFFF0'],['Pearl','#F8F6F0'],['Silver','#C0C0C0'],['Gunmetal','#2A3439'],['Charcoal','#36454F'],['Slate','#708090'],['Graphite','#383838'],['Platinum','#E5E4E2'],
+['Gold','#D4AF37'],['Champagne','#F7E7CE'],['Rose Gold','#B76E79'],['Bronze','#CD7F32'],['Copper','#B87333'],['Brass','#B5A642'],['Antique Gold','#CFB53B'],['Pale Gold','#E6BE8A'],['Honey','#FFC30B'],['Amber','#FFBF00'],
+['Red','#D32F2F'],['Ruby','#9B111E'],['Burgundy','#800020'],['Maroon','#800000'],['Crimson','#DC143C'],['Coral','#FF7F50'],['Salmon','#FA8072'],['Blush','#DE5D83'],['Rose','#FF007F'],['Pink','#FFC0CB'],
+['Fuchsia','#FF00FF'],['Magenta','#D100D1'],['Plum','#8E4585'],['Mauve','#E0B0FF'],['Lavender','#B57EDC'],['Lilac','#C8A2C8'],['Purple','#6A0DAD'],['Violet','#8F00FF'],['Indigo','#4B0082'],['Midnight Purple','#2E1A47'],
+['Navy','#000080'],['Midnight Blue','#191970'],['Royal Blue','#4169E1'],['Cobalt','#0047AB'],['Sapphire','#0F52BA'],['Azure','#007FFF'],['Sky Blue','#87CEEB'],['Powder Blue','#B0E0E6'],['Steel Blue','#4682B4'],['Teal Blue','#367588'],
+['Teal','#008080'],['Turquoise','#40E0D0'],['Aqua','#00FFFF'],['Cyan','#00BCD4'],['Mint','#98FF98'],['Seafoam','#9FE2BF'],['Emerald','#50C878'],['Jade','#00A86B'],['Forest Green','#228B22'],['Hunter Green','#355E3B'],
+['Olive','#808000'],['Sage','#9CAF88'],['Moss','#8A9A5B'],['Lime','#32CD32'],['Chartreuse','#7FFF00'],['Yellow','#FFD700'],['Canary','#FFFF99'],['Lemon','#FFF44F'],['Cream','#FFFDD0'],['Sand','#C2B280'],
+['Beige','#F5F5DC'],['Tan','#D2B48C'],['Khaki','#C3B091'],['Taupe','#483C32'],['Brown','#6F4E37'],['Chocolate','#7B3F00'],['Coffee','#4B3621'],['Espresso','#2A1608'],['Camel','#C19A6B'],['Caramel','#AF6E4D'],
+['Orange','#FF8C00'],['Tangerine','#F28500'],['Burnt Orange','#CC5500'],['Terracotta','#E2725B'],['Rust','#B7410E'],['Peach','#FFE5B4'],['Apricot','#FBCEB1'],['Copper Rose','#996666'],['Mahogany','#C04000'],['Walnut','#5C4033'],
+['Ice Blue','#D6F0FF'],['Smoke','#738276'],['Ash','#B2BEB5'],['Cloud','#F2F3F4'],['Onyx','#353839'],['Obsidian','#0B1215'],['Carbon','#111111'],['Alabaster','#EDEAE0'],['Ceramic White','#FDFBF7'],['Deep Green','#013220']
+];
+
+function showNotice(message){
+  notice.textContent=message;
+  notice.classList.add('show');
+  setTimeout(()=>notice.classList.remove('show'),3200);
+}
+
+async function api(url,options={}){
+  let response;
+  try{
+    response=await fetch(API_BASE+url,options);
+  }catch(_error){
+    throw new Error('Backend is not reachable. Start Flask and open http://127.0.0.1:5000/admin');
+  }
+  const contentType=response.headers.get('content-type')||'';
+  const data=contentType.includes('application/json')?await response.json():{};
+  if(!response.ok){
+    const message=data.errors?Object.values(data.errors)[0]:(data.error||'Request failed.');
+    throw new Error(message);
+  }
+  return data;
+}
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(section=>section.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(tab=>tab.classList.remove('active'));
+  document.getElementById('section-'+id).classList.add('active');
+  event?.target?.classList.add('active');
+  if(id==='products')loadProducts();
+  if(id==='orders')loadOrders();
+  if(id==='notifications')loadNotifications();
+}
+
+async function checkSession(){
+  const data=await api('/api/admin/session');
+  setAuthenticated(data.authenticated);
+  if(data.authenticated){
+    renderColors();
+    await Promise.all([loadProducts(),loadOrders(),loadNotifications()]);
+  }
+}
+
+function setAuthenticated(value){
+  document.getElementById('loginPanel').classList.toggle('hidden',value);
+  document.getElementById('adminShell').classList.toggle('hidden',!value);
+  document.getElementById('logoutBtn').classList.toggle('hidden',!value);
+}
+
+async function login(event){
+  event.preventDefault();
+  try{
+    await api('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:document.getElementById('loginPassword').value})});
+    document.getElementById('loginPassword').value='';
+    setAuthenticated(true);
+    renderColors();
+    await Promise.all([loadProducts(),loadOrders(),loadNotifications()]);
+    showNotice('Logged in successfully.');
+  }catch(error){showNotice(error.message)}
+}
+
+async function logout(){
+  await api('/api/admin/logout',{method:'POST'});
+  setAuthenticated(false);
+  showNotice('Logged out.');
+}
+
+function toggleColorExpand(){
+  colorsExpanded=!colorsExpanded;
+  document.getElementById('colorToggle').textContent=colorsExpanded?'Show Less':'Show More';
+  renderColors();
+}
+
+function renderColors(){
+  const q=(document.getElementById('colorSearch')?.value||'').toLowerCase();
+  const filtered=COLOR_OPTIONS.filter(([name])=>name.toLowerCase().includes(q));
+  const visible=colorsExpanded||q?filtered:filtered.slice(0,5);
+  document.getElementById('colorGrid').innerHTML=visible.map(([name,hex])=>`
+    <button type="button" class="swatch ${selectedColors.some(c=>c.hex===hex)?'selected':''}" onclick="toggleColor('${name}','${hex}')">
+      <div class="swatch-chip" style="background:${hex}"></div><div class="swatch-name">${name}</div>
+    </button>
+  `).join('');
+  document.getElementById('selectedColorNames').innerHTML=selectedColors.map(c=>`<span>${c.name}</span>`).join('');
+  document.getElementById('selectedColorInput').value=selectedColors.map(c=>c.hex).join(',');
+}
+
+function toggleColor(name,hex){
+  const exists=selectedColors.some(c=>c.hex===hex);
+  selectedColors=exists?selectedColors.filter(c=>c.hex!==hex):[...selectedColors,{name,hex}];
+  renderColors();
+}
+
+async function createProduct(event){
+  event.preventDefault();
+  const form=document.getElementById('productForm');
+  try{
+    await api('/api/admin/products',{method:'POST',body:new FormData(form)});
+    form.reset();
+    selectedColors=[];
+    document.getElementById('imagePreview').innerHTML='<div>Choose product images</div>';
+    renderColors();
+    await loadProducts();
+    showNotice('Product published.');
+  }catch(error){showNotice(error.message)}
+}
+
+async function loadProducts(){
+  const params=new URLSearchParams();
+  const q=document.getElementById('productSearch')?.value||'';
+  const category=document.getElementById('productCategory')?.value||'';
+  const active=document.getElementById('productActive')?.value||'';
+  if(q)params.set('q',q);
+  if(category)params.set('category',category);
+  if(active)params.set('active',active);
+  productsCache=await api('/api/admin/products?'+params.toString());
+  renderProducts();
+}
+
+function renderProducts(){
+  const list=document.getElementById('productList');
+  if(!productsCache.length){list.innerHTML='<p class="panel-sub" style="margin:0">No products found.</p>';return;}
+  list.innerHTML=productsCache.map(product=>`
+    <div class="item">
+      <div class="product-row">
+        <img src="${product.img}" alt="${product.name}">
+        <div>
+          <div class="product-brand">${product.brand} · ${product.category} · ${product.source}</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-meta">${product.id} · $${Number(product.price).toLocaleString()} · Stock ${product.stock} · ${product.active?'Active':'Removed'}</div>
+        </div>
+        <button class="btn btn-danger" onclick="removeProduct('${product.id}')">Remove</button>
+      </div>
+      <div class="edit-grid">
+        <input id="price-${product.id}" type="number" min="0" step="0.01" value="${product.price}" placeholder="Price">
+        <input id="orig-${product.id}" type="number" min="0" step="0.01" value="${product.orig||''}" placeholder="Original">
+        <input id="stock-${product.id}" type="number" min="0" step="1" value="${product.stock}" placeholder="Stock">
+        <select id="active-${product.id}"><option value="true" ${product.active?'selected':''}>Active</option><option value="false" ${!product.active?'selected':''}>Removed</option></select>
+        <button class="btn btn-ghost" onclick="updateProduct('${product.id}')">Update</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function updateProduct(id){
+  const product=productsCache.find(item=>item.id===id);
+  try{
+    await api('/api/admin/products/'+encodeURIComponent(id),{
+      method:'PATCH',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        ...product,
+        price:document.getElementById('price-'+id).value,
+        orig:document.getElementById('orig-'+id).value,
+        stock:document.getElementById('stock-'+id).value,
+        active:document.getElementById('active-'+id).value==='true'
+      })
+    });
+    await loadProducts();
+    showNotice('Product updated.');
+  }catch(error){showNotice(error.message)}
+}
+
+async function removeProduct(id){
+  try{
+    await api('/api/admin/products/'+encodeURIComponent(id),{method:'DELETE'});
+    await loadProducts();
+    showNotice('Product removed from storefront.');
+  }catch(error){showNotice(error.message)}
+}
+
+async function loadOrders(){
+  const params=new URLSearchParams();
+  const q=document.getElementById('orderSearch')?.value||'';
+  const status=document.getElementById('orderStatus')?.value||'';
+  if(q)params.set('q',q);
+  if(status)params.set('status',status);
+  const orders=await api('/api/admin/orders?'+params.toString());
+  const pending=orders.filter(order=>order.status==='pending').length;
+  document.getElementById('orderBadge').classList.toggle('hidden',pending===0);
+  document.getElementById('orderBadge').textContent=pending;
+  renderOrders(orders);
+}
+
+function renderOrders(orders){
+  const list=document.getElementById('orderList');
+  if(!orders.length){list.innerHTML='<p class="panel-sub" style="margin:0">No orders found.</p>';return;}
+  list.innerHTML=orders.map(order=>`
+    <div class="item">
+      <div class="order-head">
+        <div><div class="tracking">${order.tracking_id}</div><div class="product-meta">${order.customer_name} · ${order.phone} · ${order.email}</div></div>
+        <span class="status-pill">${order.status_label}</span>
+      </div>
+      <div class="order-items">${order.items.map(item=>`${item.quantity} × ${item.product_name} ($${(item.line_total_cents/100).toLocaleString()})`).join('<br>')}</div>
+      <div class="product-meta">${order.shipping_address}</div>
+      <div class="edit-grid">
+        <select id="status-${order.tracking_id}">
+          ${['pending','approved','ready_for_shipment','in_shipment','delivered','declined','delayed'].map(status=>`<option value="${status}" ${order.status===status?'selected':''}>${status.replaceAll('_',' ')}</option>`).join('')}
+        </select>
+        <input id="eta-${order.tracking_id}" value="${order.eta||''}" placeholder="ETA / detail">
+        <input id="note-${order.tracking_id}" value="${order.admin_note||''}" placeholder="Admin note">
+        <button class="btn btn-gold" onclick="updateOrder('${order.tracking_id}')">Save Status</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function updateOrder(trackingId){
+  try{
+    await api('/api/admin/orders/'+encodeURIComponent(trackingId),{
+      method:'PATCH',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        status:document.getElementById('status-'+trackingId).value,
+        eta:document.getElementById('eta-'+trackingId).value,
+        admin_note:document.getElementById('note-'+trackingId).value
+      })
+    });
+    await Promise.all([loadOrders(),loadProducts(),loadNotifications()]);
+    showNotice('Order updated.');
+  }catch(error){showNotice(error.message)}
+}
+
+async function loadNotifications(){
+  const data=await api('/api/admin/notifications');
+  document.getElementById('notificationBadge').classList.toggle('hidden',data.unread===0);
+  document.getElementById('notificationBadge').textContent=data.unread;
+  const list=document.getElementById('notificationList');
+  if(!data.items.length){list.innerHTML='<p class="panel-sub" style="margin:0">No notifications yet.</p>';return;}
+  list.innerHTML=data.items.map(item=>`
+    <div class="item" style="${item.is_read?'opacity:0.62':''}">
+      <div class="product-brand">${item.type} · ${item.created_at}</div>
+      <div class="product-name">${item.title}</div>
+      <div class="product-meta">${item.message}</div>
+      ${notificationDetailsHTML(item)}
+    </div>
+  `).join('');
+}
+
+function notificationDetailsHTML(item){
+  if(!item.details)return '';
+  if(item.type==='contact'){
+    return `<div style="margin-top:0.9rem;padding:0.9rem;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
+      <div class="product-brand">Contact Details</div>
+      <div class="product-meta"><strong>Name:</strong> ${escapeHTML(item.details.name)}</div>
+      <div class="product-meta"><strong>Email:</strong> ${escapeHTML(item.details.email)}</div>
+      <div class="product-meta" style="margin-top:0.5rem;line-height:1.8"><strong>Message:</strong> ${escapeHTML(item.details.message)}</div>
+    </div>`;
+  }
+  if(item.type==='order'){
+    return `<div style="margin-top:0.9rem;padding:0.9rem;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
+      <div class="product-brand">Order Details</div>
+      <div class="product-meta"><strong>Tracking:</strong> ${escapeHTML(item.details.tracking_id)}</div>
+      <div class="product-meta"><strong>Customer:</strong> ${escapeHTML(item.details.customer_name||'')}</div>
+      <div class="product-meta"><strong>Status:</strong> ${escapeHTML(item.details.status||'')}</div>
+    </div>`;
+  }
+  return '';
+}
+
+function escapeHTML(value){
+  return String(value??'').replace(/[&<>"']/g, char=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[char]));
+}
+
+async function markNotificationsRead(){
+  await api('/api/admin/notifications/read',{method:'POST'});
+  await loadNotifications();
+}
+
+async function changePassword(event){
+  event.preventDefault();
+  try{
+    await api('/api/admin/change-password',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        current_password:document.getElementById('currentPassword').value,
+        new_password:document.getElementById('newPassword').value
+      })
+    });
+    document.getElementById('currentPassword').value='';
+    document.getElementById('newPassword').value='';
+    showNotice('Password updated.');
+  }catch(error){showNotice(error.message)}
+}
+
+document.getElementById('imageInput').addEventListener('change',event=>{
+  const files=[...event.target.files];
+  if(!files.length)return;
+  document.getElementById('imagePreview').innerHTML=files.map(file=>`<div><img src="${URL.createObjectURL(file)}" alt="Preview"></div>`).join('');
+});
+
+checkSession().catch(()=>setAuthenticated(false));
+</script>
+</body>
+</html>

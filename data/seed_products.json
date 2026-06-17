@@ -1,0 +1,731 @@
+[
+  {
+    "id": "l1",
+    "name": "Royal Perpetuel",
+    "brand": "Patek Philippe",
+    "price": 42500,
+    "orig": 48000,
+    "rating": 5,
+    "reviews": 89,
+    "desc": "Hand-wound tourbillon movement with perpetual calendar. 18k rose gold case with alligator strap.",
+    "category": "luxury",
+    "colors": [
+      "#8B6914",
+      "#1A1208",
+      "#2C1810"
+    ],
+    "specs": {
+      "Movement": "Tourbillon",
+      "Case": "18k Rose Gold",
+      "Crystal": "Sapphire",
+      "WR": "30m",
+      "Diameter": "41mm",
+      "Strap": "Alligator"
+    },
+    "img": "/static/images/seed/24-photo-1587836374828-4dbafa94cf0e.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/24-photo-1587836374828-4dbafa94cf0e.jpg"
+    ]
+  },
+  {
+    "id": "l2",
+    "name": "Submariner Heritage",
+    "brand": "Rolex",
+    "price": 12800,
+    "orig": 14200,
+    "rating": 5,
+    "reviews": 214,
+    "desc": "Automatic movement, ceramic bezel, Oyster bracelet. The icon that defined diving watches.",
+    "category": "luxury",
+    "colors": [
+      "#1A1A1A",
+      "#0D1A0D",
+      "#1A1408"
+    ],
+    "specs": {
+      "Movement": "Automatic",
+      "Case": "Oystersteel",
+      "Crystal": "Sapphire",
+      "WR": "300m",
+      "Diameter": "41mm",
+      "Strap": "Oyster Bracelet"
+    },
+    "img": "/static/images/seed/10-photo-1523170335258-f5ed11844a49.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/10-photo-1523170335258-f5ed11844a49.jpg"
+    ]
+  },
+  {
+    "id": "l3",
+    "name": "Royal Oak Offshore",
+    "brand": "Audemars Piguet",
+    "price": 28900,
+    "orig": 31500,
+    "rating": 4.8,
+    "reviews": 67,
+    "desc": "Iconic octagonal bezel in stainless steel. Calibre 3120 self-winding movement.",
+    "category": "luxury",
+    "colors": [
+      "#2A2A2A",
+      "#8B6914",
+      "#1A0808"
+    ],
+    "specs": {
+      "Movement": "Cal. 3120",
+      "Case": "Stainless Steel",
+      "Crystal": "Anti-reflective",
+      "WR": "100m",
+      "Diameter": "41mm",
+      "Strap": "Rubber"
+    },
+    "img": "/static/images/seed/27-photo-1614164185128-e4ec99c436d7.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/27-photo-1614164185128-e4ec99c436d7.jpg"
+    ]
+  },
+  {
+    "id": "l4",
+    "name": "Portofino Chronograph",
+    "brand": "IWC",
+    "price": 9200,
+    "orig": 10500,
+    "rating": 4.7,
+    "reviews": 43,
+    "desc": "Elegant dress watch with Sellita SW500 movement. Perfect for the modern gentleman.",
+    "category": "luxury",
+    "colors": [
+      "#1A1A1A",
+      "#8B6914"
+    ],
+    "specs": {
+      "Movement": "Sellita SW500",
+      "Case": "Stainless Steel",
+      "Crystal": "Sapphire",
+      "WR": "30m",
+      "Diameter": "40mm",
+      "Strap": "Leather"
+    },
+    "img": "/static/images/seed/19-photo-1548171915-e79a380a2a4b.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/19-photo-1548171915-e79a380a2a4b.jpg"
+    ]
+  },
+  {
+    "id": "l5",
+    "name": "Grand Seiko Spring",
+    "brand": "Grand Seiko",
+    "price": 5800,
+    "orig": 6500,
+    "rating": 4.9,
+    "reviews": 156,
+    "desc": "Spring Drive movement with unrivaled accuracy. Snowflake dial inspired by Mount Shirouma.",
+    "category": "luxury",
+    "colors": [
+      "#F5F0E8",
+      "#1A1A1A"
+    ],
+    "specs": {
+      "Movement": "Spring Drive",
+      "Case": "Titanium",
+      "Crystal": "Sapphire",
+      "WR": "100m",
+      "Diameter": "40mm",
+      "Strap": "Leather"
+    },
+    "img": "/static/images/seed/25-photo-1587925358603-c2eea5305bbc.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/25-photo-1587925358603-c2eea5305bbc.jpg"
+    ]
+  },
+  {
+    "id": "l6",
+    "name": "Santos de Cartier",
+    "brand": "Cartier",
+    "price": 7200,
+    "orig": 8100,
+    "rating": 4.6,
+    "reviews": 98,
+    "desc": "Aviation pioneer's watch reimagined. Interchangeable QuickSwitch system.",
+    "category": "luxury",
+    "colors": [
+      "#C9A96E",
+      "#1A1A1A"
+    ],
+    "specs": {
+      "Movement": "Automatic",
+      "Case": "Steel & Gold",
+      "Crystal": "Sapphire",
+      "WR": "100m",
+      "Diameter": "39.8mm",
+      "Strap": "Steel & Leather"
+    },
+    "img": "/static/images/seed/26-photo-1600003014608-c2ccc1570a65.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/26-photo-1600003014608-c2ccc1570a65.jpg"
+    ]
+  },
+  {
+    "id": "s1",
+    "name": "Aquaracer Professional",
+    "brand": "TAG Heuer",
+    "price": 2200,
+    "orig": 2650,
+    "rating": 4.8,
+    "reviews": 312,
+    "desc": "200m water resistance, unidirectional rotating bezel. Automatic Calibre 5 movement.",
+    "category": "sports",
+    "colors": [
+      "#1A1A1A",
+      "#0D1A1A",
+      "#1A0808"
+    ],
+    "specs": {
+      "Movement": "Auto Cal.5",
+      "Case": "Steel",
+      "Crystal": "Sapphire",
+      "WR": "200m",
+      "Diameter": "43mm",
+      "Strap": "Bracelet"
+    },
+    "img": "/static/images/seed/21-photo-1564496954841-092e3a3bda16.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/21-photo-1564496954841-092e3a3bda16.jpg"
+    ]
+  },
+  {
+    "id": "s2",
+    "name": "G-Shock Master of G",
+    "brand": "Casio",
+    "price": 650,
+    "orig": 750,
+    "rating": 4.7,
+    "reviews": 523,
+    "desc": "Mudmaster triple sensor. Carbon Core Guard structure. 200m water resistance.",
+    "category": "sports",
+    "colors": [
+      "#1A1A1A",
+      "#0D1A0D"
+    ],
+    "specs": {
+      "Movement": "Quartz",
+      "Case": "Carbon",
+      "Crystal": "Mineral",
+      "WR": "200m",
+      "Diameter": "55mm",
+      "Strap": "Resin"
+    },
+    "img": "/static/images/seed/30-photo-1691439378545-dd6b35ff2f7b.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/30-photo-1691439378545-dd6b35ff2f7b.jpg"
+    ]
+  },
+  {
+    "id": "s3",
+    "name": "Navitimer 01",
+    "brand": "Breitling",
+    "price": 7400,
+    "orig": 8200,
+    "rating": 4.9,
+    "reviews": 87,
+    "desc": "The pilot's watch. Circular slide rule for flight calculations. COSC-certified chronometer.",
+    "category": "sports",
+    "colors": [
+      "#1A1A1A",
+      "#1A1208"
+    ],
+    "specs": {
+      "Movement": "COSC Chrono",
+      "Case": "Steel",
+      "Crystal": "Sapphire",
+      "WR": "30m",
+      "Diameter": "43mm",
+      "Strap": "Bracelet"
+    },
+    "img": "/static/images/seed/15-photo-1543956872-37cfc5474a71.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/15-photo-1543956872-37cfc5474a71.jpg"
+    ]
+  },
+  {
+    "id": "s4",
+    "name": "Seamaster Diver 300",
+    "brand": "Omega",
+    "price": 6200,
+    "orig": 6900,
+    "rating": 5,
+    "reviews": 189,
+    "desc": "As worn by 007. Master Chronometer certified. Ceramic bezel with wave-edge design.",
+    "category": "sports",
+    "colors": [
+      "#0D1A1A",
+      "#1A1A1A"
+    ],
+    "specs": {
+      "Movement": "Co-Axial",
+      "Case": "Steel",
+      "Crystal": "Sapphire",
+      "WR": "300m",
+      "Diameter": "42mm",
+      "Strap": "NATO & Bracelet"
+    },
+    "img": "/static/images/seed/31-photo-1691921673576-07c6032e6306.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/31-photo-1691921673576-07c6032e6306.jpg"
+    ]
+  },
+  {
+    "id": "s5",
+    "name": "Fenix 7 Sapphire",
+    "brand": "Garmin",
+    "price": 1050,
+    "orig": 1200,
+    "rating": 4.6,
+    "reviews": 234,
+    "desc": "Multisport GPS smartwatch with solar charging. Sapphire crystal, titanium bezel.",
+    "category": "sports",
+    "colors": [
+      "#1A1A1A",
+      "#8B6914"
+    ],
+    "specs": {
+      "Movement": "GPS Quartz",
+      "Case": "Titanium",
+      "Crystal": "Sapphire",
+      "WR": "100m",
+      "Diameter": "47mm",
+      "Strap": "Silicone"
+    },
+    "img": "/static/images/seed/32-photo-1706381239626-de81e586141c.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/32-photo-1706381239626-de81e586141c.jpg"
+    ]
+  },
+  {
+    "id": "s6",
+    "name": "Speedmaster Moonwatch",
+    "brand": "Omega",
+    "price": 6800,
+    "orig": 7400,
+    "rating": 4.9,
+    "reviews": 301,
+    "desc": "The watch worn on the Moon. Hand-wound chronograph with hesalite crystal. A legend reborn.",
+    "category": "sports",
+    "colors": [
+      "#1A1A1A",
+      "#C9A96E"
+    ],
+    "specs": {
+      "Movement": "Cal. 3861",
+      "Case": "Steel",
+      "Crystal": "Hesalite",
+      "WR": "50m",
+      "Diameter": "42mm",
+      "Strap": "Bracelet"
+    },
+    "img": "/static/images/seed/22-photo-1574714051445-90bdcd7fdb82.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/22-photo-1574714051445-90bdcd7fdb82.jpg"
+    ]
+  },
+  {
+    "id": "c1",
+    "name": "Classic Petite Sheffield",
+    "brand": "Daniel Wellington",
+    "price": 189,
+    "orig": 230,
+    "rating": 4.5,
+    "reviews": 1204,
+    "desc": "Minimalist Swedish design. Mesh bracelet with quick-release system. Perfect everyday companion.",
+    "category": "casual",
+    "colors": [
+      "#C9A96E",
+      "#1A1A1A",
+      "#F5F0E8"
+    ],
+    "specs": {
+      "Movement": "Quartz",
+      "Case": "Steel",
+      "Crystal": "Mineral",
+      "WR": "30m",
+      "Diameter": "36mm",
+      "Strap": "Mesh"
+    },
+    "img": "/static/images/seed/14-photo-1542496658-e33a6d0d50f6.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/14-photo-1542496658-e33a6d0d50f6.jpg"
+    ]
+  },
+  {
+    "id": "c2",
+    "name": "Voyager Automatic",
+    "brand": "MVMT",
+    "price": 295,
+    "orig": 350,
+    "rating": 4.4,
+    "reviews": 876,
+    "desc": "Japanese NH35 automatic movement. Vintage-inspired design with modern finishing.",
+    "category": "casual",
+    "colors": [
+      "#1A1208",
+      "#F5F0E8",
+      "#1A1A1A"
+    ],
+    "specs": {
+      "Movement": "NH35 Auto",
+      "Case": "Steel",
+      "Crystal": "Mineral",
+      "WR": "50m",
+      "Diameter": "40mm",
+      "Strap": "Leather"
+    },
+    "img": "/static/images/seed/28-photo-1617317376997-8748e6862c01.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/28-photo-1617317376997-8748e6862c01.jpg"
+    ]
+  },
+  {
+    "id": "c3",
+    "name": "Heritage Automatique",
+    "brand": "Fossil",
+    "price": 175,
+    "orig": 210,
+    "rating": 4.3,
+    "reviews": 2341,
+    "desc": "Skeleton dial showcasing the automatic movement. Premium leather strap with antique finish.",
+    "category": "casual",
+    "colors": [
+      "#8B4A00",
+      "#1A1A1A"
+    ],
+    "specs": {
+      "Movement": "Automatic",
+      "Case": "Steel",
+      "Crystal": "Mineral",
+      "WR": "30m",
+      "Diameter": "44mm",
+      "Strap": "Leather"
+    },
+    "img": "/static/images/seed/06-photo-1522312346375-d1a52e2b99b3.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/06-photo-1522312346375-d1a52e2b99b3.jpg"
+    ]
+  },
+  {
+    "id": "c4",
+    "name": "PRX Powermatic 80",
+    "brand": "Tissot",
+    "price": 695,
+    "orig": 780,
+    "rating": 4.7,
+    "reviews": 432,
+    "desc": "80-hour power reserve. Anti-magnetic. Integrated bracelet with H-shaped links.",
+    "category": "casual",
+    "colors": [
+      "#1A1A1A",
+      "#C9A96E",
+      "#F5F0E8"
+    ],
+    "specs": {
+      "Movement": "Powermatic 80",
+      "Case": "Steel",
+      "Crystal": "Sapphire",
+      "WR": "100m",
+      "Diameter": "40mm",
+      "Strap": "Bracelet"
+    },
+    "img": "/static/images/seed/13-photo-1539874754764-5a96559165b0.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/13-photo-1539874754764-5a96559165b0.jpg"
+    ]
+  },
+  {
+    "id": "c5",
+    "name": "Carrera Calibre 5",
+    "brand": "TAG Heuer",
+    "price": 3200,
+    "orig": 3800,
+    "rating": 4.8,
+    "reviews": 167,
+    "desc": "Racing-inspired elegance. Inspired by the legendary Carrera Panamericana road race.",
+    "category": "casual",
+    "colors": [
+      "#1A1A1A",
+      "#F5F0E8"
+    ],
+    "specs": {
+      "Movement": "Auto Cal.5",
+      "Case": "Steel",
+      "Crystal": "Sapphire",
+      "WR": "100m",
+      "Diameter": "41mm",
+      "Strap": "Leather"
+    },
+    "img": "/static/images/seed/05-photo-1509048191080-d2984bad6ae5.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/05-photo-1509048191080-d2984bad6ae5.jpg"
+    ]
+  },
+  {
+    "id": "c6",
+    "name": "City Classic",
+    "brand": "Longines",
+    "price": 1450,
+    "orig": 1700,
+    "rating": 4.6,
+    "reviews": 289,
+    "desc": "Swiss-made elegance at its finest. Slender profile with premium leather strap.",
+    "category": "casual",
+    "colors": [
+      "#C9A96E",
+      "#1A1A1A",
+      "#F5F0E8"
+    ],
+    "specs": {
+      "Movement": "L888.2",
+      "Case": "Steel",
+      "Crystal": "Sapphire",
+      "WR": "30m",
+      "Diameter": "40mm",
+      "Strap": "Leather"
+    },
+    "img": "/static/images/seed/01-photo-1434494878577-86c23bcb06b9.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/01-photo-1434494878577-86c23bcb06b9.jpg"
+    ]
+  },
+  {
+    "id": "sw1",
+    "name": "Apple Watch Ultra 2",
+    "brand": "Apple",
+    "price": 799,
+    "orig": 849,
+    "rating": 4.9,
+    "reviews": 3241,
+    "desc": "Titanium case. Precision dual-frequency GPS. Up to 60 hours battery life.",
+    "category": "smart",
+    "colors": [
+      "#1A1A1A",
+      "#F5F0E8"
+    ],
+    "specs": {
+      "OS": "watchOS 10",
+      "Case": "Titanium",
+      "Crystal": "Sapphire",
+      "WR": "100m",
+      "Diameter": "49mm",
+      "Battery": "36–60h"
+    },
+    "img": "/static/images/seed/02-photo-1434494878577-86c23bcb06b9.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/02-photo-1434494878577-86c23bcb06b9.jpg"
+    ]
+  },
+  {
+    "id": "sw2",
+    "name": "Galaxy Watch 6 Classic",
+    "brand": "Samsung",
+    "price": 399,
+    "orig": 449,
+    "rating": 4.6,
+    "reviews": 1876,
+    "desc": "Rotating bezel interface. Advanced health monitoring. BioActive triple sensor.",
+    "category": "smart",
+    "colors": [
+      "#1A1A1A",
+      "#C9A96E"
+    ],
+    "specs": {
+      "OS": "Wear OS 4",
+      "Case": "Stainless",
+      "Crystal": "Sapphire",
+      "WR": "50m",
+      "Diameter": "47mm",
+      "Battery": "40h"
+    },
+    "img": "/static/images/seed/16-photo-1546868871-7041f2a55e12.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/16-photo-1546868871-7041f2a55e12.jpg"
+    ]
+  },
+  {
+    "id": "sw3",
+    "name": "Fenix 7 Pro Solar",
+    "brand": "Garmin",
+    "price": 899,
+    "orig": 1050,
+    "rating": 4.8,
+    "reviews": 543,
+    "desc": "Solar charging + 7 day battery. Topographic maps. Built for extreme expeditions.",
+    "category": "smart",
+    "colors": [
+      "#1A1A1A",
+      "#8B6914"
+    ],
+    "specs": {
+      "OS": "Garmin OS",
+      "Case": "Titanium",
+      "Crystal": "Power Glass",
+      "WR": "100m",
+      "Diameter": "47mm",
+      "Battery": "7–28 days"
+    },
+    "img": "/static/images/seed/11-photo-1523395243481-163f8f6155ab.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/11-photo-1523395243481-163f8f6155ab.jpg"
+    ]
+  },
+  {
+    "id": "sw4",
+    "name": "Watch GT 4 Pro",
+    "brand": "Huawei",
+    "price": 349,
+    "orig": 399,
+    "rating": 4.5,
+    "reviews": 432,
+    "desc": "14-day battery. ECG monitoring. Sapphire crystal, titanium case.",
+    "category": "smart",
+    "colors": [
+      "#1A1A1A",
+      "#C9A96E"
+    ],
+    "specs": {
+      "OS": "HarmonyOS 4",
+      "Case": "Titanium",
+      "Crystal": "Sapphire",
+      "WR": "50m",
+      "Diameter": "46mm",
+      "Battery": "14 days"
+    },
+    "img": "/static/images/seed/20-photo-1551816230-ef5deaed4a26.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/20-photo-1551816230-ef5deaed4a26.jpg"
+    ]
+  },
+  {
+    "id": "sw5",
+    "name": "Pixel Watch 3 XL",
+    "brand": "Google",
+    "price": 449,
+    "orig": 499,
+    "rating": 4.5,
+    "reviews": 654,
+    "desc": "Circular AMOLED display. Fitbit health integration. Emergency SOS anywhere.",
+    "category": "smart",
+    "colors": [
+      "#1A1A1A",
+      "#F5F0E8"
+    ],
+    "specs": {
+      "OS": "Wear OS 4",
+      "Case": "Recycled Aluminum",
+      "Crystal": "Corning Glass",
+      "WR": "50m",
+      "Diameter": "45mm",
+      "Battery": "24h"
+    },
+    "img": "/static/images/seed/29-photo-1660844817855-3ecc7ef21f12.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/29-photo-1660844817855-3ecc7ef21f12.jpg"
+    ]
+  },
+  {
+    "id": "sw6",
+    "name": "Versa 4",
+    "brand": "Fitbit",
+    "price": 229,
+    "orig": 269,
+    "rating": 4.4,
+    "reviews": 2109,
+    "desc": "Built-in GPS. 6+ day battery. 40+ exercise modes. Daily Readiness Score.",
+    "category": "smart",
+    "colors": [
+      "#1A1A1A",
+      "#C9A96E",
+      "#F5F0E8"
+    ],
+    "specs": {
+      "OS": "Fitbit OS",
+      "Case": "Aluminum",
+      "Crystal": "Gorilla Glass",
+      "WR": "50m",
+      "Diameter": "40mm",
+      "Battery": "6 days"
+    },
+    "img": "/static/images/seed/23-photo-1575311373937-040b8e1fd5b6.jpg",
+    "stock": 10,
+    "active": true,
+    "source": "predefined",
+    "images": [
+      "/static/images/seed/23-photo-1575311373937-040b8e1fd5b6.jpg"
+    ]
+  }
+]
